@@ -1,0 +1,173 @@
+use Shubhi; 
+create table student(
+        Roll_no int,
+        Name varchar(30),
+        Class varchar(10),
+        Fees int
+        );
+insert into student values(1,"Ram","7th",1700),
+						(2,"Shyam","7th",1700);
+
+insert into student values(3,"Sita","7th",1700),
+                          (4,"Gita","7th",1700),
+                          (5,"Hari","7th",1700),
+                          (6,"Marry","7th",1800),
+                          (7,"Lali","7th",1700),
+                          (8,"Suli","7th",1800),
+                          (9,"Golu","7th",1700),
+                          (10,"Molu","7th",1800);
+
+select * from student
+where Fees=1800;
+
+select Roll_no+1 from student;
+select Roll_no-1 from student;                          
+select Roll_no*1 from student;                         
+select Roll_no/1 from student;                         
+select * from student
+where Roll_no%2=0;                          
+                          
+select * from student
+where Roll_no>2;      
+     
+select * from student
+where Fess!=1700 or Roll_no%2=0;   
+ 
+select * from student
+where Roll_no in (1,3,4);    
+ 
+ select * from student
+ where Roll_no between 2 and 4;
+ 
+ select * from student
+ where Name like "s%";
+ 
+select * from student
+where Name like "%a";
+ 
+ select * from student
+ where Name like "sita"; 
+ 
+select * from student
+order by Name; 
+ 
+select * from student
+order by Roll_no;  
+ 
+select * from student
+order by Roll_no desc; 
+ 
+ use shubhi;
+select * from cars_dataset_India;
+ 
+select sum(Price) from cars_dataset_India; 
+ 
+select max(Price) from cars_dataset_India; 
+ 
+where Manufacturer="MercedesBenz" and Year=2017; 
+
+select count(Manufacturer) from cars_dataset_India
+where Manyfacturer="MercedesBenz" and Year=2017;
+
+select avg(Price) from cars_dataset_India
+where Manufacturer="Audi";
+
+select max(Price) from cars_dataset_India;
+select * from cars_dataset_India
+where Price=(select max(Price) from cars_dataset_India);
+
+select max(Price) from cars_dataset_India;
+select * from cars_dataset_India
+where Price=(select min(Price) from cars_dataset_India);
+
+select * from cars_dataset_India
+select sum(Price) from 'cars_dataset_India'
+where Manufacturer="Maruti" and Location="Mumbai";
+select Manufacturer , sum(Price) as Total from cars_dataset_India
+group by Manufacturer
+order by Total desc;
+
+select Year, sum(Price) as Total from cars_dataset_India
+where Manufacturer ="Maruti"
+group by year
+order by Total desc
+
+select Manufacturer, sum(Price) as Total from cars_dataset_India
+where Year =2017
+group by Manufacturer
+order by Total desc;
+
+select Manufacturer, count(Price) as No_of_cars from cars_dataset_India
+where Year =2017
+group by Manufacturer
+order by No_of_cars desc;
+
+select Location, sum(Price) from cars_dataset_India
+where Manufacturer ="Toyota"
+group by Location
+order by sum(price) desc;
+
+select Location, sum(Price) from cars_dataset_India
+where Manufacturer ="Maruti"
+group by Location
+order by sum(price) desc;
+
+use shubhi;
+
+select * from cars_dataset_India;
+
+select count(Manufacturer) from cars_dataset_India;
+
+select Location, sum(Price) from cars_dataset_India
+where Manufacturer ="Maruti"
+group by Location
+order by sum(price) desc;
+
+select Location, Manufacturer, sum(Price)  from cars_dataset_India
+where Manufacturer ="Mumbai"
+group by Location
+order by sum(price) desc;
+
+select * from cars_dataset_India;
+select * from cars_dataset_India
+where Price=(select max(Price) from cars_dataset_India);
+
+select Name from cars_dataset_India
+limit 100;
+
+select * from cars_dataset_India
+where `Mileage Km/L`=(select(`Mileage Km/L`) from cars_dataset_India);
+
+select * from cars_dataset_India;
+
+select count(Name) from cars_dataset_India
+where Manufacturer="Volvo" and `mileage km/l`>(
+                                                       select max(`mileage km/l`) from cars_dataset_India
+                                                       where Manufacturer="MercedesBenz");
+                                                       
+select count(Name) from cars_dataset_India
+where Manufacturer="MercedesBenz" and Price<(
+                                                       select avg(Price) from cars_dataset_India
+                                                       where Manufacturer="Audi");                                               
+
+select *  from cars_dataset_India
+where `Mileage km/l`=(select max(`mileage km/l`) from cars_dataset_India
+                      where `Mileage km/l` !=(
+                                              select max(`mileage km/l`) from cars_dataset_India));                      
+
+select * from cars_dataset_India
+order by `Mileage km/l` desc
+limit 100;
+
+select * from cars_dataset_India
+where Name(Manufacturer) and max(Name); 
+
+select *  from cars_dataset_India
+where Price=(select max(Price) from cars_dataset_India
+                      where Price<(
+                                              select max(Price) from cars_dataset_India
+                                              where Price=(
+                                              select max(Price) from cars_dataset_India)));  
+                                              
+                                              
+                                              
